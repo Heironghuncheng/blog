@@ -11,6 +11,7 @@ author : BLESS
 scrolltotop : true
 toc : true
 mathjax : false
+comments: false
 ---
 # 伊壁鸠鲁的人生哲学思想及其启示
 

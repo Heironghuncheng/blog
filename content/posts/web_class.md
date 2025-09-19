@@ -11,6 +11,7 @@ author : BLESS
 scrolltotop : true
 toc : true
 mathjax : false
+comments: false
 ---
 
 # 项目功能预计实现

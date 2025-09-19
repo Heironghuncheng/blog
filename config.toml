@@ -4,91 +4,144 @@
 # To see what each config does, refer to https://1bl4z3r.github.io/hermit-V2/en/posts/explaining-configs/
 # Open Issue or Pull Request at https://github.com/1bl4z3r/hermit-V2
 
-baseURL = "https://blog.blessing.website/"
-defaultContentLanguage = "zh"
-defaultContentLanguageInSubdir = true
-theme = "hermit-v2"
+baseURL = "https://blog.blessing.website/" # 站点基础 URL，用于生成绝对链接、RSS、sitemap 等
+defaultContentLanguage = "zh" # 默认内容语言，影响默认内容目录与多语言切换
+defaultContentLanguageInSubdir = true # 是否将默认语言内容也放到子目录（如 /zh/）
+theme = "hermit-v2" # 使用的 Hugo 主题名称
+enableRobotsTXT = true ## set to true to enable inbuilt robots.txt # 是否生成 robots.txt（建议生产环境开启）
 
-[languages]
-[languages.zh]
-title = 'Bless Blog'
-[languages.zh.params]
-homeSubtitle = "may the god bless you"
-weight = 1
+[languages] # 多语言配置根表
+[languages.zh] # 中文语言配置
+title = 'Bless Blog' # 该语言下的站点标题
+[languages.zh.params] # 该语言下的主题自定义参数
+homeSubtitle = "may the god bless you" # 首页副标题（支持主题特效显示）
+weight = 1 # 语言权重，用于语言切换排序，数字越小越靠前
+ 
+languageCode = "zh-cn" # 站点语言代码（用于 <html lang> 等）
 
-languageCode = "zh-cn"
+title = "Blog" # 站点主标题（未分语种时生效或作为回退）
+enableGitInfo = true # 启用 Git 信息，用于自动生成 lastmod 等元数据
 
-title = "BLESS YOU"
-enableGitInfo = true
+hasCJKLanguage = true # 为中日韩字符启用更准确的字数/阅读时长估算
+# pygmentsCodefences = true # 已弃用：请使用 [markup.highlight] 进行代码高亮配置
+# pygmentsUseClasses = true # 已弃用：请使用 [markup.highlight] 进行代码高亮配置
 
-hasCJKLanguage = true
-pygmentsCodefences = true
-pygmentsUseClasses = true
+rssLimit = 10 # RSS 订阅中包含的最大文章数量
 
-# rssLimit = 10
+copyright = "ICP备案号" # 页脚版权信息
+enableEmoji = true # 解析 :smile: 等 Emoji 简写为表情
 
-# copyright = "CHANGE ME"
-enableEmoji = true
+[services] # 外部服务配置
+ [services.disqus]
+   shortname = '' # Disqus 短域名（留空则不启用评论）
+ [services.googleAnalytics]
+   id = 'G-PPKXV8KCVS' # Google Analytics（GA4）测量 ID
 
-# disqusShortname = "CHANGE ME"
+[frontmatter] # Front Matter 字段解析优先级
+date = ["date", "publishDate", "lastmod"] # 文章日期的解析优先顺序
+lastmod = ["lastmod", ":git", "date", "publishDate"] # 最后修改时间的解析顺序（支持从 Git 获取）
+publishDate = ["publishDate", "date"] # 发布日期的解析顺序
+expiryDate = ["expiryDate"] # 过期日期字段名
 
-[params.author]
-name = "BLESS"
-about = "about"
+[params.author] # 作者信息
+  name = "BLESS" # 作者显示名
+  about = "about" # 作者简介或“关于”页标识（根据主题实现可能为链接/路径/文案）
 
 [blackfriday]
-# hrefTargetBlank = true
-# noreferrerLinks = true
-# nofollowLinks = true
+#   hrefTargetBlank = true # 旧版 Markdown 渲染配置（黑曜石/Blackfriday），已由 Goldmark 取代
+#   noreferrerLinks = true
+#   nofollowLinks = true
 
 [taxonomies]
-tag = "tags"
-# Categories are disabled by default.
+  tag = "tags" # 启用标签分类并设置其路径为 /tags
+  # Categories are disabled by default.
+  # category = "categories" # 启用分类（categories）分类法，并设置其路径为 /categories
 
-[params]
-dateform = "Jan 2, 2006"
-dateformShort = "Jan 2"
-dateformNum = "2006-01-02"
-dateformNumTime = "2006-01-02 15:04 -0700"
+# Enable to get proper Mathjax support
+[markup] # Markdown/渲染相关高级配置（取消注释以启用）
+ [markup.goldmark] # Goldmark 渲染器设置
+   [markup.goldmark.extensions] # Goldmark 扩展项
+     [markup.goldmark.extensions.passthrough] # 透传扩展，将指定定界符内容原样输出
+       enable = true # 允许将特定数学/LaTeX 定界符原样输出给前端（供 MathJax 渲染）
+       [markup.goldmark.extensions.passthrough.delimiters] # 定义透传的定界符
+         block = [['\[', '\]'], ['$$', '$$']] # 块级数学公式的定界符集合
+         inline = [['\(', '\)']] # 行内数学公式的定界符集合
 
-description = "learning blog"
-images = ["bg.jpg"]
-themeColor = "#494f5c"
+  # 新版代码高亮（Chroma）
+  [markup.highlight]
+    noClasses = true     # 直接内联样式，避免额外 CSS 依赖
+    style = "monokai"    # 你也可以改为 "dracula"、"github" 等内置主题
+    guessSyntax = true   # 无语言标注时智能猜测
+    codeFences = true    # 支持 ``` 围栏代码
+    lineNos = false      # 关闭行号（需要可改为 true）
 
-# homeSubtitle = "blog"
-footerCopyright = "COPYRIGHT"
-# bgImg = "bg"
-# gitUrl = "https://github.com/1bl4z3r/hermit-V2/tree/staging"
+[params] # 主题参数
+  description = "learning blog" # 站点描述，用于 <meta name="description"> 及社交分享摘要
+  # images = [""] # 站点默认分享图（Open Graph / Twitter Card），留空则按文章或主题默认
+  themeColor = "#494f5c" # 主题主色（影响按钮/链接等）
+  accentColor = "#018472" # 强调色/高亮色
 
-justifyContent = true
+  #homeSubtitle = "CHANGE ME HOME SUBTITLE" # 覆盖首页副标题（如未使用 languages.zh.params.homeSubtitle）
+  footerCopyright = "晋ICP备2021004765号-1" # 页脚版权文案
+  footerHideThemeName = true # 隐藏页脚中的主题名称署名
+  # bgImg = "" # 背景图路径（相对 static/ 或绝对 URL），主题支持时生效
+  # gitUrl = "https://github.com/1bl4z3r/hermit-V2/tree/staging" # 页脚/仓库链接等处展示的代码仓库地址
 
-relatedPosts = true
-code_copy_button = true
+  justifyContent = false # 主题布局中的正文排版对齐方式开关（具体效果依主题实现）
 
-homeSubtitlePrinter = true
-scrollToTop = true
-global_mathjax = false
-readTime = true
-readTimeSeparator = " "
-legacyLayout = false
-shareSocial = true
+  relatedPosts = true # 在文章页底部显示相关文章
+  code_copy_button = true # 代码块显示“复制”按钮
 
-[[params.socialLinks]]
-name = "github"
-url = "https://github.com/Heironghuncheng/Heironghuncheng"
+  homeSubtitlePrinter = true # 首页副标题打字机动画
+  scrollToTop = true  # 显示“回到顶部”按钮
+  global_mathjax = false # 是否全站启用 MathJax（若只在部分页面用，可在页面级别开启）
+  readTime = false # 显式关闭预计阅读时长（主题不再显示读时）
+  readTimeSeparator = " " # 阅读时长显示的分隔符/后缀文案（保留以防将来启用）
+  # legacyLayout = false # 使用主题的旧版布局（仅当你需要旧样式时启用）
+  shareSocial = false # 文章页显示社交分享按钮
+  # googleTagManager = "GTM-XXXXXXXX" # Google Tag Manager 容器 ID（启用后会注入 GTM 脚本）
+  # tagSymbol = "#" # 标签名前缀符号外观（主题展示用）
+  # categorySymbol = "⊲" # 分类名前缀符号外观（主题展示用）
+  # pinned = "Pinned Posts" # 置顶文章的标签文案
+  # pinnedSVGname = "pin" # 置顶文章所用的 SVG 图标名称（需与主题内置图标一致）
+  # listLayout = ["description","tags","categories","legacy"] # 列表页的布局元素顺序/组合（主题特定）
+  # initialPublish = "Initally Posted on: " # 初次发布提示文案前缀
+  # human = ["single","posts"] # 主题特定选项：限定某些人性化展示（如文案/日期）作用的页面类型
+  # noIndex = false # 为整站或页面设置 noindex（不被搜索引擎收录），主题/模板支持时生效
+  # denyRobots = "noindex, nofollow, noarchive" # 设置 robots meta 的拒绝策略
+  # allowRobots = "index, follow" # 设置 robots meta 的允许策略
+  # siteNoIndex = false # 整站 noindex 开关（与上面组合使用，主题实现相关）
+  noIndexPages = ["404 Page not found"] # 指定不希望被索引的页面标题集合
+  usesAnimation = true # 开启页面动画/过渡效果
+  mathjaxLib = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" # 自定义 MathJax 脚本地址
+  mermaidLib = "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs" # 自定义 Mermaid 脚本地址
+  [params.gallery]
+    enable = true # 启用主题的画廊功能/短代码
+    thumbnail = '300' # 画廊缩略图宽度（像素）
 
-[menu]
+  [params.dateform] # 日期格式配置（Go 时间格式）
+    CopyrightDate = "2006" # 页脚版权年份展示格式（2006 是 Go 的基准年占位）
+    LongDate = "Jan 2, 2006" # 长日期格式
+    ShortDate = "Jan 2" # 短日期格式
+    NumDateShort = "2006-01-02" # 数字短日期格式
+    NumDateLong = "2006-01-02 15:04 -0700" # 数字长日期格式（含时区）
 
-[[menu.main]]
-name = "Posts"
-url = "posts/"
-weight = 10
+  [[params.socialLinks]]
+    name = "github"
+    url = "https://github.com/Heironghuncheng/Heironghuncheng"
 
-[[menu.main]]
-name = "About"
-url = "about"
-weight = 20
+[menu] # 菜单配置
 
-[services]
-  [services.googleAnalytics]
-    ID = 'G-PPKXV8KCVS'
+  [[menu.main]] # 顶部主菜单项
+    name = "Posts" # 菜单显示名
+    url = "posts/" # 菜单链接（相对站点根路径）
+    weight = 10 # 菜单排序，数字越小越靠前
+
+  [[menu.main]]
+    name = "About"
+    url = "about"
+    weight = 20 # 菜单排序，数字越小越靠前
+
+
+
+    
