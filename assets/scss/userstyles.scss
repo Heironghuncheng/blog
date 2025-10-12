@@ -1,0 +1,17 @@
+/* 站点级覆盖：将首页副标题居中，覆盖主题默认的左对齐 */
+#home-center {
+  /* 首页容器是 flex-direction: column；让子项沿横轴居中 */
+  align-items: center;
+}
+
+#typewriter-container {
+  /* 让打字机容器本身在横向居中，且其中内容居中 */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#home-subtitle {
+  /* 覆盖主题对副标题的 text-align:left */
+  text-align: center;
+}

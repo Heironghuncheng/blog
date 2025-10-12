@@ -1,0 +1,33 @@
+# 全局配置
+{
+    # 可选：设置管理员邮箱（用于SSL证书申请）
+    # email blessingbrandro@gmail.com
+    # 可选：设置ACME CA（证书颁发机构）
+    # acme_ca https://acme-v02.api.letsencrypt.org/directory
+}
+
+# blog.blessing.website - 反向代理到Hugo本地服务器
+blog.blessing.website {
+    # 设置根目录（如果需要服务静态文件）
+    root * /srv/blog/public
+
+    file_server
+    
+}
+
+# file.blessing.website - 文件服务器
+file.blessing.website {
+    # 设置根目录
+    root * /srv/files
+    
+    # 启用文件浏览功能
+    file_server browse
+    
+}
+
+# blessing.website - 重定向到blog子域名
+#blessing.website, www.blessing.website {
+    # 永久重定向到blog子域名
+    #redir https://blog.blessing.website{uri} permanent
+    
+#}
