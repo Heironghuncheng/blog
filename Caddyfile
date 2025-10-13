@@ -9,7 +9,7 @@
 # blog.blessing.website - 反向代理到Hugo本地服务器
 blog.blessing.website {
     # 设置根目录（如果需要服务静态文件）
-    root * /srv/blog/public
+    root * /srv/public
 
     file_server
     
@@ -23,6 +23,22 @@ file.blessing.website {
     # 启用文件浏览功能
     file_server browse
     
+}
+
+slide.blessing.website {
+  root * /srv/slidevs
+  encode zstd gzip
+  file_server browse
+
+  # 先尝试真实文件或目录下的 index.html
+  try_files {path} {path}/index.html /index.html
+
+  # 每个子目录的深链接，回退到该目录的 index.html
+  @spa {
+    not file
+    path_regexp deck ^/([^/]+)/.*
+  }
+  rewrite @spa /{re.deck.1}/index.html
 }
 
 # blessing.website - 重定向到blog子域名
