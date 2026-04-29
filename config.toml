@@ -4,7 +4,7 @@
 # To see what each config does, refer to https://1bl4z3r.github.io/hermit-V2/en/posts/explaining-configs/
 # Open Issue or Pull Request at https://github.com/1bl4z3r/hermit-V2
 
-baseURL = "https://blog.blessing.website/" # 站点基础 URL，用于生成绝对链接、RSS、sitemap 等
+baseURL = "https://blog.hieros.me/" # 站点基础 URL，用于生成绝对链接、RSS、sitemap 等
 defaultContentLanguage = "zh" # 默认内容语言，影响默认内容目录与多语言切换
 defaultContentLanguageInSubdir = true # 是否将默认语言内容也放到子目录（如 /zh/）
 theme = "hermit-v2" # 使用的 Hugo 主题名称
@@ -28,7 +28,7 @@ hasCJKLanguage = true # 为中日韩字符启用更准确的字数/阅读时长�
 
 rssLimit = 10 # RSS 订阅中包含的最大文章数量
 
-copyright = "ICP备案号" # 页脚版权信息
+copyright = "" # 页脚版权信息
 enableEmoji = true # 解析 :smile: 等 Emoji 简写为表情
 
 [services] # 外部服务配置
@@ -82,7 +82,7 @@ expiryDate = ["expiryDate"] # 过期日期字段名
   accentColor = "#018472" # 强调色/高亮色
 
   #homeSubtitle = "CHANGE ME HOME SUBTITLE" # 覆盖首页副标题（如未使用 languages.zh.params.homeSubtitle）
-  footerCopyright = "晋ICP备2021004765号-1" # 页脚版权文案
+  footerCopyright = "blog.hieros.me" # 页脚版权文案
   footerHideThemeName = true # 隐藏页脚中的主题名称署名
   # bgImg = "" # 背景图路径（相对 static/ 或绝对 URL），主题支持时生效
   # gitUrl = "https://github.com/1bl4z3r/hermit-V2/tree/staging" # 页脚/仓库链接等处展示的代码仓库地址
