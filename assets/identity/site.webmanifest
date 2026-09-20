@@ -1,0 +1,24 @@
+{{- $favicon32 := resources.Get "identity/favicon-32x32.png" -}}
+{{- $appleTouchIcon := resources.Get "identity/apple-touch-icon.png" -}}
+{
+  "name": "{{ site.Title }}",
+  "short_name": "Bless Blog",
+  "description": "{{ site.Params.description }}",
+  "start_url": "{{ site.Home.RelPermalink }}",
+  "scope": "{{ site.Home.RelPermalink }}",
+  "display": "standalone",
+  "background_color": "#494f5c",
+  "theme_color": "#494f5c",
+  "icons": [
+    {
+      "src": "{{ $favicon32.RelPermalink }}",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "{{ $appleTouchIcon.RelPermalink }}",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

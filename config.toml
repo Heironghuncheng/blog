@@ -17,7 +17,7 @@ title = 'Bless Blog' # 该语言下的站点标题
 homeSubtitle = "may the god bless you" # 首页副标题（支持主题特效显示）
 weight = 1 # 语言权重，用于语言切换排序，数字越小越靠前
  
-languageCode = "zh-cn" # 站点语言代码（用于 <html lang> 等）
+locale = "zh-CN" # 站点区域设置（用于 <html lang>、日期及本地化输出）
 
 title = "Blog" # 站点主标题（未分语种时生效或作为回退）
 enableGitInfo = true # 启用 Git 信息，用于自动生成 lastmod 等元数据
@@ -59,7 +59,13 @@ expiryDate = ["expiryDate"] # 过期日期字段名
 
 # Enable to get proper Mathjax support
 [markup] # Markdown/渲染相关高级配置（取消注释以启用）
+ [markup.tableOfContents] # 目录覆盖正文中的一级至三级标题
+   startLevel = 1
+   endLevel = 3
+   ordered = false
  [markup.goldmark] # Goldmark 渲染器设置
+   [markup.goldmark.renderer]
+     unsafe = true # 允许 Markdown 正文中的原生 HTML（例如 <img>）
    [markup.goldmark.extensions] # Goldmark 扩展项
      [markup.goldmark.extensions.passthrough] # 透传扩展，将指定定界符内容原样输出
        enable = true # 允许将特定数学/LaTeX 定界符原样输出给前端（供 MathJax 渲染）
@@ -89,14 +95,12 @@ expiryDate = ["expiryDate"] # 过期日期字段名
 
   justifyContent = false # 主题布局中的正文排版对齐方式开关（具体效果依主题实现）
 
-  relatedPosts = true # 在文章页底部显示相关文章
   code_copy_button = true # 代码块显示“复制”按钮
 
   homeSubtitlePrinter = true # 首页副标题打字机动画
   scrollToTop = true  # 显示“回到顶部”按钮
   global_mathjax = false # 是否全站启用 MathJax（若只在部分页面用，可在页面级别开启）
-  readTime = false # 彻底关闭预计阅读时长显示
-  readTimeSeparator = " " # 阅读时长显示的分隔符/后缀文案（保留以防将来启用）
+  # 阅读时长改为在文章 Front Matter 中通过 readTime 控制
   # legacyLayout = false # 使用主题的旧版布局（仅当你需要旧样式时启用）
   shareSocial = false # 文章页显示社交分享按钮
   # googleTagManager = "GTM-XXXXXXXX" # Google Tag Manager 容器 ID（启用后会注入 GTM 脚本）
@@ -106,7 +110,8 @@ expiryDate = ["expiryDate"] # 过期日期字段名
   # pinnedSVGname = "pin" # 置顶文章所用的 SVG 图标名称（需与主题内置图标一致）
   # listLayout = ["description","tags","categories","legacy"] # 列表页的布局元素顺序/组合（主题特定）
   # initialPublish = "Initally Posted on: " # 初次发布提示文案前缀
-  # human = ["single","posts"] # 主题特定选项：限定某些人性化展示（如文案/日期）作用的页面类型
+  # brainMade = ["single","posts"] # 指定显示 Brain Made 标识的页面类型
+  # humansTxt = true # 是否生成 humans.txt
   # noIndex = false # 为整站或页面设置 noindex（不被搜索引擎收录），主题/模板支持时生效
   # denyRobots = "noindex, nofollow, noarchive" # 设置 robots meta 的拒绝策略
   # allowRobots = "index, follow" # 设置 robots meta 的允许策略
@@ -115,9 +120,18 @@ expiryDate = ["expiryDate"] # 过期日期字段名
   usesAnimation = true # 开启页面动画/过渡效果
   mathjaxLib = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" # 自定义 MathJax 脚本地址
   mermaidLib = "https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs" # 自定义 Mermaid 脚本地址
+
+  [params.pages]
+    LastmodOpen = '[' # 最后更新时间左侧符号
+    LastmodClose = ']' # 最后更新时间右侧符号
+    readTimeSeparator = " " # 阅读时长分隔文本；是否显示由文章 Front Matter 控制
+    lastUpdatedOn = "最后更新：" # 最后更新时间前缀
+    relatedPosts = true # 在文章页底部显示相关文章
+
   [params.gallery]
     enable = true # 启用主题的画廊功能/短代码
-    thumbnail = '300' # 画廊缩略图宽度（像素）
+    width = '300' # 画廊图片宽度（像素）
+    layout = 'grid' # 画廊布局
 
   [params.dateform] # 日期格式配置（Go 时间格式）
     CopyrightDate = "2006" # 页脚版权年份展示格式（2006 是 Go 的基准年占位）

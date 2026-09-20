@@ -5,12 +5,14 @@ date = "2023-11-14"
 # custom_js = ["js/custom-about.js"]
 +++
 
-I'm a student working on Multi-agent reinforcement learning trying to use it in Microgrids
+我是 BLESS，一名来自山东大学的学生，也使用 BLESS 作为网名。
 
-Nice to meet you
+我目前主要关注多智能体强化学习、微电网优化调度，以及 LLM 的工具化应用。相比于只记住一个结论，我更喜欢顺着论文中的问题继续往下看：环境如何建模，算法如何实现，实验结果是否能够复现，以及代码里那些容易被忽略的细节。
 
-gmail at blessingbrandro@gmail.com
+平时会阅读强化学习、博弈论和机器学习相关的论文，也会尝试使用 JAX、MARL 环境和各种开源项目进行实验。对我来说，代码不仅是验证想法的工具，也是理解一个方法最直接的方式。遇到有意思的项目时，我通常会先阅读实现，再把自己的理解、修改和踩坑记录下来。
 
-github at 
+这个博客主要记录学习过程中的论文笔记、代码复现、实验观察，以及一些关于软件工具和工程实践的思考。内容可能不够系统，也不一定总是正确，但希望它们能留下真实的思考过程，并在以后回头看时仍然有价值。
 
-* https://github.com/Heironghuncheng/Heironghuncheng
+如果你也对强化学习、智能体、开源代码或相关问题感兴趣，欢迎交流。
+
+[GitHub](https://github.com/Heironghuncheng) · [Email](mailto:blessingbrandro@gmail.com)
