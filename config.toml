@@ -93,7 +93,7 @@ expiryDate = ["expiryDate"] # 过期日期字段名
   # bgImg = "" # 背景图路径（相对 static/ 或绝对 URL），主题支持时生效
   # gitUrl = "https://github.com/1bl4z3r/hermit-V2/tree/staging" # 页脚/仓库链接等处展示的代码仓库地址
 
-  justifyContent = false # 主题布局中的正文排版对齐方式开关（具体效果依主题实现）
+  justifyContent = true # 正文两端对齐，段落最后一行保持左对齐
 
   code_copy_button = true # 代码块显示“复制”按钮
 
