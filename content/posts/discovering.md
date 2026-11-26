@@ -12,6 +12,7 @@ scrolltotop: true
 toc: true
 mathjax: true
 comments: false
+paper_url: "https://www.nature.com/articles/s41586-025-09761-x"
 ---
 
 # DiscoRL

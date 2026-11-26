@@ -12,6 +12,8 @@ scrolltotop : true
 toc : true
 mathjax : true
 comments: false
+paper_url: "https://nips.cc/virtual/2024/poster/93443"
+code_url: "https://github.com/DongsuLeeTech/EFTM"
 ---
 
 # EFT - 情景未来思维机制

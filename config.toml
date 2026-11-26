@@ -9,20 +9,21 @@ defaultContentLanguage = "zh" # 默认内容语言，影响默认内容目录与
 defaultContentLanguageInSubdir = true # 是否将默认语言内容也放到子目录（如 /zh/）
 theme = "hermit-v2" # 使用的 Hugo 主题名称
 enableRobotsTXT = true ## set to true to enable inbuilt robots.txt # 是否生成 robots.txt（建议生产环境开启）
+hasCJKLanguage = true # 为中日韩字符启用更准确的字数/阅读时长估算
 
 [languages] # 多语言配置根表
 [languages.zh] # 中文语言配置
 title = 'Bless Blog' # 该语言下的站点标题
+label = "中文"
+weight = 1 # 语言权重，用于语言切换排序，数字越小越靠前
 [languages.zh.params] # 该语言下的主题自定义参数
 homeSubtitle = "may the god bless you" # 首页副标题（支持主题特效显示）
-weight = 1 # 语言权重，用于语言切换排序，数字越小越靠前
  
 locale = "zh-CN" # 站点区域设置（用于 <html lang>、日期及本地化输出）
 
 title = "Blog" # 站点主标题（未分语种时生效或作为回退）
 enableGitInfo = true # 启用 Git 信息，用于自动生成 lastmod 等元数据
 
-hasCJKLanguage = true # 为中日韩字符启用更准确的字数/阅读时长估算
 # pygmentsCodefences = true # 已弃用：请使用 [markup.highlight] 进行代码高亮配置
 # pygmentsUseClasses = true # 已弃用：请使用 [markup.highlight] 进行代码高亮配置
 
@@ -30,6 +31,11 @@ rssLimit = 10 # RSS 订阅中包含的最大文章数量
 
 copyright = "" # 页脚版权信息
 enableEmoji = true # 解析 :smile: 等 Emoji 简写为表情
+
+[languages.en]
+title = "Bless Blog"
+label = "English"
+weight = 2
 
 [services] # 外部服务配置
  [services.disqus]
@@ -44,7 +50,7 @@ publishDate = ["publishDate", "date"] # 发布日期的解析顺序
 expiryDate = ["expiryDate"] # 过期日期字段名
 
 [params.author] # 作者信息
-  name = "BLESS" # 作者显示名
+  name = "Xinquan Shao" # 作者显示名
   about = "about" # 作者简介或“关于”页标识（根据主题实现可能为链接/路径/文案）
 
 [blackfriday]
@@ -59,7 +65,7 @@ expiryDate = ["expiryDate"] # 过期日期字段名
 
 # Enable to get proper Mathjax support
 [markup] # Markdown/渲染相关高级配置（取消注释以启用）
- [markup.tableOfContents] # 目录覆盖正文中的一级至三级标题
+ [markup.tableOfContents] # 目录覆盖正文中的一级至三级标题（与上游模板一致）
    startLevel = 1
    endLevel = 3
    ordered = false
@@ -75,8 +81,7 @@ expiryDate = ["expiryDate"] # 过期日期字段名
 
   # 新版代码高亮（Chroma）
   [markup.highlight]
-    noClasses = true     # 直接内联样式，避免额外 CSS 依赖
-    style = "monokai"    # 你也可以改为 "dracula"、"github" 等内置主题
+    noClasses = false    # 由主题样式统一设置代码高亮配色
     guessSyntax = true   # 无语言标注时智能猜测
     codeFences = true    # 支持 ``` 围栏代码
     lineNos = false      # 关闭行号（需要可改为 true）
@@ -84,13 +89,14 @@ expiryDate = ["expiryDate"] # 过期日期字段名
 [params] # 主题参数
   description = "learning blog" # 站点描述，用于 <meta name="description"> 及社交分享摘要
   # images = [""] # 站点默认分享图（Open Graph / Twitter Card），留空则按文章或主题默认
-  themeColor = "#494f5c" # 主题主色（影响按钮/链接等）
-  accentColor = "#018472" # 强调色/高亮色
+  themeColor = "#0a0b0c" # 浏览器界面和 PWA 启动画面的底色
+  accentColor = "#8bdbc7" # 链接悬停、焦点和标签入口的强调色
 
   #homeSubtitle = "CHANGE ME HOME SUBTITLE" # 覆盖首页副标题（如未使用 languages.zh.params.homeSubtitle）
   footerCopyright = "blog.hieros.me" # 页脚版权文案
   footerHideThemeName = true # 隐藏页脚中的主题名称署名
   # bgImg = "" # 背景图路径（相对 static/ 或绝对 URL），主题支持时生效
+  starfield = true # 全站动态星空
   # gitUrl = "https://github.com/1bl4z3r/hermit-V2/tree/staging" # 页脚/仓库链接等处展示的代码仓库地址
 
   justifyContent = true # 正文两端对齐，段落最后一行保持左对齐
@@ -108,7 +114,7 @@ expiryDate = ["expiryDate"] # 过期日期字段名
   # categorySymbol = "⊲" # 分类名前缀符号外观（主题展示用）
   # pinned = "Pinned Posts" # 置顶文章的标签文案
   # pinnedSVGname = "pin" # 置顶文章所用的 SVG 图标名称（需与主题内置图标一致）
-  # listLayout = ["description","tags","categories","legacy"] # 列表页的布局元素顺序/组合（主题特定）
+  postTopics = ["论文笔记", "工具"] # 文章列表顶部的标签入口
   # initialPublish = "Initally Posted on: " # 初次发布提示文案前缀
   # brainMade = ["single","posts"] # 指定显示 Brain Made 标识的页面类型
   # humansTxt = true # 是否生成 humans.txt
@@ -144,18 +150,58 @@ expiryDate = ["expiryDate"] # 过期日期字段名
     name = "github"
     url = "https://github.com/Heironghuncheng/Heironghuncheng"
 
-[menu] # 菜单配置
+[languages.zh.menus] # 菜单配置
 
-  [[menu.main]] # 顶部主菜单项
+  [[languages.zh.menus.main]] # 顶部主菜单项
     name = "Posts" # 菜单显示名
     url = "posts/" # 菜单链接（相对站点根路径）
     weight = 10 # 菜单排序，数字越小越靠前
 
-  [[menu.main]]
+  [[languages.zh.menus.main]]
     name = "About"
-    url = "about"
+    url = "about/"
     weight = 20 # 菜单排序，数字越小越靠前
 
+[languages.en.menus]
+
+  [[languages.en.menus.main]]
+    name = "Posts (Chinese)"
+    url = "../zh/posts/"
+    weight = 10
+
+  [[languages.en.menus.main]]
+    name = "About"
+    url = "about/"
+    weight = 20
+
+# Expose the CV submodule to Hugo's asset pipeline so the portrait can be
+# resized and the two PDFs can be published as downloads. Declaring mounts
+# replaces the defaults, so the standard mounts are listed explicitly.
+[module]
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "data"
+    target = "data"
+  [[module.mounts]]
+    source = "i18n"
+    target = "i18n"
+  [[module.mounts]]
+    source = "archetypes"
+    target = "archetypes"
+  [[module.mounts]]
+    source = "cv"
+    target = "assets/cv"
 
 
     

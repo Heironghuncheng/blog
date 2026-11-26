@@ -12,6 +12,7 @@ scrolltotop : true
 toc : true
 mathjax : true
 comments: false
+paper_url: "https://nips.cc/virtual/2024/poster/96810"
 ---
 
 # 多智能体协作中个体与集体目标的对齐

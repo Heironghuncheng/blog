@@ -12,6 +12,9 @@ scrolltotop : true
 toc : true
 mathjax : true
 comments: false
+paper_url: "https://arxiv.org/abs/2311.10090"
+paper_pdf: "https://arxiv.org/pdf/2311.10090"
+code_url: "https://github.com/flairox/jaxmarl"
 ---
 
 # 在JAX中多智能体强化学习环境和算法

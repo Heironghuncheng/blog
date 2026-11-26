@@ -12,6 +12,8 @@ scrolltotop: true
 toc: true
 mathjax: true
 comments: false
+paper_url: "https://arxiv.org/abs/1911.10635"
+paper_pdf: "https://arxiv.org/pdf/1911.10635"
 ---
 
 # 多智能体强化学习：理论与算法选讲

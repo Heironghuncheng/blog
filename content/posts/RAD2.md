@@ -12,6 +12,8 @@ scrolltotop: true
 toc: true
 mathjax: true
 comments: false
+paper_url: "https://arxiv.org/abs/2604.15308"
+paper_pdf: "https://arxiv.org/pdf/2604.15308"
 ---
 
 # RAD2阅读

@@ -1,4 +1,7 @@
 [submodule "themes/hermit-v2"]
 	path = themes/hermit-v2
-	url = https://github.com/1bl4z3r/hermit-V2
+	url = https://github.com/Heironghuncheng/hermit-V2.git
 	branch = main
+[submodule "cv"]
+	path = cv
+	url = https://github.com/Heironghuncheng/CV.git
