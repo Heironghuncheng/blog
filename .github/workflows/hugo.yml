@@ -28,8 +28,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
           fetch-depth: 0
+          persist-credentials: false
+      - name: Checkout public theme
+        run: git submodule update --init --recursive -- themes/hermit-v2
+      - name: Read pinned CV commit
+        id: cv
+        run: printf 'sha=%s\n' "$(git rev-parse HEAD:cv)" >> "$GITHUB_OUTPUT"
+      - name: Checkout private CV
+        uses: actions/checkout@v4
+        with:
+          repository: Heironghuncheng/CV
+          ref: ${{ steps.cv.outputs.sha }}
+          path: cv
+          ssh-key: ${{ secrets.CV_DEPLOY_KEY }}
+          persist-credentials: false
       - name: Install Hugo
         run: |
           curl --fail --location --retry 3 \
