@@ -3,5 +3,17 @@
 /resources/_gen/
 /.hugo_build.lock
 
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+/.idea/
+/.vscode/
+*.swp
+*~
+
+# Machine-specific agent settings
+/.claude/settings.local.json
+
 # Archives
 *.zip
