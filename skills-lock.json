@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "skills": {
+    "great-resume": {
+      "source": "Hisn00w/ASu-skills",
+      "ref": "5d6592acadcd77385a884c1de042986486cfe2bc",
+      "commit": "5d6592acadcd77385a884c1de042986486cfe2bc",
+      "sourceType": "github",
+      "skillPath": "skills/great-resume/SKILL.md",
+      "computedHash": "1345c0720296c9332e22504cc5b5ab85181bcb2d4c03393e95bb378a3887d1f7",
+      "installMode": "copy"
+    },
+    "make-resume": {
+      "source": "Hisn00w/ASu-skills",
+      "ref": "5d6592acadcd77385a884c1de042986486cfe2bc",
+      "commit": "5d6592acadcd77385a884c1de042986486cfe2bc",
+      "sourceType": "github",
+      "skillPath": "skills/make-resume/SKILL.md",
+      "computedHash": "8405c54d9973863ef3d638835cb207035e3d1806eaab611ef274ef953cf75470",
+      "installMode": "copy"
+    }
+  }
+}

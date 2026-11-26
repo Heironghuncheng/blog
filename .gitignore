@@ -15,5 +15,12 @@ desktop.ini
 # Machine-specific agent settings
 /.claude/settings.local.json
 
+# Installed agent skills and their shared resources
+/.agents/skills/
+/.agents/assets/
+/.agents/scripts/
+/.claude/skills/
+/.codex/skills/
+
 # Archives
 *.zip
