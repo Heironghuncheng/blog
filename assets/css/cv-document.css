@@ -1,0 +1,59 @@
+html,
+html[lang] body {
+  background: #fff;
+}
+
+html[lang] .resume-page {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+@media screen and (max-width: 1079px) {
+  html[lang="en"] .resume-header {
+    grid-template-columns: minmax(0, 1fr) 78px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html[lang="en"] .resume-page {
+    overflow-wrap: anywhere;
+  }
+
+  html[lang="en"] .resume-header {
+    position: relative;
+    display: block;
+  }
+
+  html[lang="en"] .name-row {
+    display: block;
+    min-height: 104px;
+    padding-inline-end: 90px;
+  }
+
+  html[lang="en"] .name-row h1 {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  html[lang="en"] .name-row p,
+  html[lang="en"] .contact-line {
+    font-size: 16px;
+  }
+
+  html[lang="en"] .photo-space {
+    position: absolute;
+    inset: 0 0 auto auto;
+    width: 78px;
+  }
+
+  html[lang="en"] .skills-cloud {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  html[lang="en"] .education-date {
+    white-space: normal;
+  }
+}

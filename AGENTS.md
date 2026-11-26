@@ -6,6 +6,11 @@ This repository is a Hugo technical blog. The rules below apply primarily to pro
 
 The user request takes priority over these defaults. Preserve front matter, code blocks, tables, links, identifiers, and technical examples unless the requested change requires modifying them.
 
+## Theme ownership
+
+- `themes/hermit-v2` is this blog's editable theme fork. Put reusable layouts, partials, styles, and behavior directly in the theme. Do not create blog-root overrides for changes that belong to the theme.
+- Keep blog-specific content, file paths, and configuration in the blog repository. When a change spans both repositories, verify the Hugo build with the changed theme before updating the submodule reference.
+
 ## Writing purpose and audience
 
 - Write for readers who want to understand and apply a technical concept, not for an academic-review audience. Explain the practical meaning of a concept before adding implementation detail.

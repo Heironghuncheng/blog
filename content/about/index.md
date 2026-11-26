@@ -3,7 +3,7 @@ title = "关于 Xinquan Shao"
 date = "2023-11-14"
 layout = "about"
 name_zh = "邵鑫泉"
-role = "控制工程硕士研究生"
+role = "硕士研究生"
 affiliation = "山东大学 控制科学与工程学院"
 location = "济南，中国"
 github = "https://github.com/Heironghuncheng"
@@ -13,8 +13,6 @@ linkedin = "https://www.linkedin.com/in/xinquan-shao-74b163416/"
 focus = ["大模型推理系统", "强化学习与多智能体", "微电网优化调度"]
 scholar = "https://scholar.google.com/citations?user=ldx77oQAAAAJ&hl=zh-CN&oi=ao"
 portrait = "cv/xinquan_shao_bio.png"
-cv_zh = "cv/resume.pdf"
-cv_en = "cv/resume-en.pdf"
 github_user = "Heironghuncheng"
 notes_tag = "论文笔记"
 notes_count = 2
@@ -96,6 +94,7 @@ status = "已录用（2026）"
 summary = "压电多机器人系统的宏观运动与微观操作。"
 highlights = ["压电多机器人系统的宏观运动与微观操作。", "我负责多机器人控制算法与上位机视觉闭环；论文已录用。"]
 doi = "https://doi.org/10.1109/TIE.2026.3737842"
+cover = "images/papers/tie.jpg"
 +++
 
 我目前在山东大学控制科学与工程学院读硕士，学习 AI Infra，主要关注大模型推理系统与性能优化。之前做过多智能体强化学习、微电网优化调度和大模型工具开发，关注集中式训练与分散式执行（CTDE），以及零和与一般和博弈。

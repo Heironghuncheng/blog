@@ -3,7 +3,7 @@ title = "About Xinquan Shao"
 date = "2023-11-14"
 layout = "about"
 name_zh = "邵鑫泉"
-role = "M.S. student in Control Engineering"
+role = "Master's student"
 affiliation = "Shandong University, School of Control Science and Engineering"
 location = "Jinan, China"
 github = "https://github.com/Heironghuncheng"
@@ -13,8 +13,6 @@ linkedin = "https://www.linkedin.com/in/xinquan-shao-74b163416/"
 focus = ["LLM inference systems", "Reinforcement learning & MARL", "Microgrid optimal dispatch"]
 scholar = "https://scholar.google.com/citations?user=ldx77oQAAAAJ&hl=zh-CN&oi=ao"
 portrait = "cv/xinquan_shao_bio.png"
-cv_zh = "cv/resume.pdf"
-cv_en = "cv/resume-en.pdf"
 github_user = "Heironghuncheng"
 notes_tag = "论文笔记"
 notes_count = 2
@@ -96,6 +94,7 @@ status = "Accepted (2026)"
 summary = "A piezoelectric multi-robot system for macro movement and micro manipulation."
 highlights = ["A piezoelectric multi-robot system for macro movement and micro manipulation.", "I worked on the multi-robot control algorithm and the host-side vision loop; the paper is accepted."]
 doi = "https://doi.org/10.1109/TIE.2026.3737842"
+cover = "images/papers/tie.jpg"
 +++
 
 I am a master's student in Control Engineering at Shandong University, studying AI infrastructure with a focus on LLM inference systems and performance optimization. I previously worked on multi-agent reinforcement learning, microgrid dispatch optimization, and LLM tooling, with an emphasis on centralized training with decentralized execution (CTDE), zero-sum games, and general-sum games.

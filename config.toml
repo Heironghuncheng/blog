@@ -49,6 +49,9 @@ lastmod = ["lastmod", ":git", "date", "publishDate"] # 最后修改时间的解�
 publishDate = ["publishDate", "date"] # 发布日期的解析顺序
 expiryDate = ["expiryDate"] # 过期日期字段名
 
+[permalinks.page]
+posts = "/posts/:slugorcontentbasename/" # 年月目录只用于整理源文件，不改变文章地址
+
 [params.author] # 作者信息
   name = "Xinquan Shao" # 作者显示名
   about = "about" # 作者简介或“关于”页标识（根据主题实现可能为链接/路径/文案）
@@ -162,6 +165,11 @@ expiryDate = ["expiryDate"] # 过期日期字段名
     url = "about/"
     weight = 20 # 菜单排序，数字越小越靠前
 
+  [[languages.zh.menus.main]]
+    name = "CV"
+    url = "cv/"
+    weight = 30
+
 [languages.en.menus]
 
   [[languages.en.menus.main]]
@@ -173,6 +181,11 @@ expiryDate = ["expiryDate"] # 过期日期字段名
     name = "About"
     url = "about/"
     weight = 20
+
+  [[languages.en.menus.main]]
+    name = "CV"
+    url = "cv/"
+    weight = 30
 
 # Expose the CV submodule to Hugo's asset pipeline so the portrait can be
 # resized and the two PDFs can be published as downloads. Declaring mounts
@@ -203,5 +216,14 @@ expiryDate = ["expiryDate"] # 过期日期字段名
     source = "cv"
     target = "assets/cv"
 
+  # The CV layout renders the resumes; expose only their relative assets here.
+  [[module.mounts]]
+    source = "cv"
+    target = "static/zh/cv"
+    files = ["styles.css", "xinquan_shao_bio.png"]
+  [[module.mounts]]
+    source = "cv"
+    target = "static/en/cv"
+    files = ["styles.css", "styles-en.css", "xinquan_shao_bio.png"]
 
     
