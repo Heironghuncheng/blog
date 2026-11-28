@@ -31,6 +31,8 @@ Kinetic 是那个仓库。它用 Rust 写，读 GGUF，能在 CPU 和 GPU 上跑
 
 两个 PR 的复盘放在 `kinetic-pr.md`。这篇只讲引擎本身，不展开具体 PR。
 
+面试材料另见[面试速记](kinetic-interview/quick-notes.md)和[面试题库](kinetic-interview/question-bank.md)。
+
 ## 阅读建议
 
 我没有从头到尾读。
